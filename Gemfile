@@ -6,48 +6,95 @@ git_source(:github) do |repo_name|
 end
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
-# Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+# Added gems
+gem 'mysql2'
+gem 'bootstrap-sass'
+gem 'devise'
+
+gem 'sprockets'
+gem 'bcrypt-ruby'
+gem 'jquery-turbolinks'
+gem 'shoulda'
+gem 'date_validator'
+gem 'foreigner'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'searchkick'
+gem 'money'
+gem 'money-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'geocoder'
+gem 'geo_ip'
+gem 'stripe'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+gem 'premailer-rails'
+gem 'nokogiri'
+gem 'acts_as_votable'
+gem 'aws-sdk'
+gem 'carrierwave'
+gem 'fog'
+gem 'figaro'
+gem 'mini_magick'
+gem 'responders'
+gem 'elastic-beanstalk'
+gem 'font-awesome-rails' # Font-awesome icon
+gem 'mail_form' #Forms, mail
+gem 'simple_form' #Forms, mail
+
+
+group :development,:test do
+  gem 'rspec-rails'
+  #gem 'rspec-its'
+  gem 'simplecov', :require => false
+  gem 'guard-rspec'
+  #gem 'spork-rails'
+  #gem 'guard-spork'
+  gem 'childprocess'
+  gem 'rails-erd'
+  gem 'pry-rails'
+  gem 'guard-rails'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'launchy'
+end
+
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use unicorn as the app server
+# gem 'unicorn'
+
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# gem 'capistrano', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '~> 0.0.2'
 end
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
