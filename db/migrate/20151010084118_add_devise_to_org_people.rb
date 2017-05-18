@@ -1,6 +1,6 @@
-class DeviseCreateOrgPeople < ActiveRecord::Migration[5.0]
-  def change
-    create_table :org_people do |t|
+class AddDeviseToOrgPeople < ActiveRecord::Migration
+  def self.up
+    change_table(:org_people) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -31,12 +31,19 @@ class DeviseCreateOrgPeople < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
 
-      t.timestamps null: false
+      # Uncomment below if timestamps were not included in your original model.
+      # t.timestamps null: false
     end
 
     add_index :org_people, :email,                unique: true
     add_index :org_people, :reset_password_token, unique: true
     add_index :org_people, :confirmation_token,   unique: true
     # add_index :org_people, :unlock_token,         unique: true
+  end
+
+  def self.down
+    # By default, we don't want to make any assumption about how to roll back a migration when your
+    # model already existed. Please edit below which fields you would like to remove in this migration.
+    # raise ActiveRecord::IrreversibleMigration
   end
 end
